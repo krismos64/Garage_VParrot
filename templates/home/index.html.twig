@@ -3,27 +3,43 @@
 {% block body %}
 
 <section class="welcome-area sec-padding">
-        <div class="container">
-          <div class="row">
+    <div class="container">
+        <div class="row">
             <div class="col-md-6">
-              <div class="text-holder">
-                <div class="sec-title">
-                  <h1>Bienvenue chez V.Parrot<span> Garage auto et vente de véhicules d'occasion.</span></h1>
-                  <span class="border"></span>
-                </div>
-                <div class="text-box">
-                  <p>
-                    Le garage automobile V.Parrot a été créé en 2021. Notre équipe de mécaniciens automobiles intervient sur tous types de véhicules de toutes marques et de tous modèles pour les particuliers et les professionnels. Confiez l’entretien, la réparation et le dépannage de votre voiture ou votre utilitaire à notre garage auto.
-                  </p>
-                  <p>Nous vendons également des véhicules d'occasion vérifiés et testés par notre équipe.</p>
-                  <div class="name-signature">
+                <div class="text-holder">
+                    <div class="sec-title">
+                        <h1>Bienvenue chez V.Parrot<span> Garage auto et vente de véhicules d'occasion.</span></h1>
+                        <span class="border"></span>
+                    </div>
+                    <div class="text-box">
+                        <p>
+                            Le garage automobile V.Parrot a été créé en 2021. Notre équipe de mécaniciens automobiles intervient sur tous types de véhicules de toutes marques et de tous modèles pour les particuliers et les professionnels. Confiez l’entretien, la réparation et le dépannage de votre voiture ou votre utilitaire à notre garage auto.
+                        </p>
+                        <p>Nous vendons également des véhicules d'occasion vérifiés et testés par notre équipe.</p>
+                        <div class="name-signature">
                     <div class="name">
                       <h3>Vincent Parrot, <span>Fondateur</span></h3>
-
+                    </div>
+                    <div class="signature">
+                      <img src="assets/icon/signature.png" alt="Signature de V.Parrot" />
                     </div>
                   </div>
+                    </div>
                 </div>
-              </div>
             </div>
             <div class="col-md-6">
+                        <div class="img-holder wow slideInRight text-center">
+                            <img src="{{ asset('assets/resources/welcome.jpg') }}" alt="La photo de V.Parrot" />
+                            <div class="inner-content">
+                                <h3>Nous prenons le plus grand soin de votre véhicule</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End welcome area -->
+
 {% endblock %}
