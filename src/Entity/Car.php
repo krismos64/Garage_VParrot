@@ -26,9 +26,7 @@ class Car
     private ?string $Model = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Color = null;
 
-    #[ORM\Column(length: 5)]
     private ?string $Year = null;
 
     #[ORM\Column(length: 6)]
@@ -48,6 +46,9 @@ class Car
 
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: CarImage::class)]
     private Collection $image;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
 
     public function __construct()
     {
@@ -79,18 +80,6 @@ class Car
     public function setModel(string $Model): static
     {
         $this->Model = $Model;
-
-        return $this;
-    }
-
-    public function getColor(): ?string
-    {
-        return $this->Color;
-    }
-
-    public function setColor(string $Color): static
-    {
-        $this->Color = $Color;
 
         return $this;
     }
@@ -193,6 +182,18 @@ class Car
                 $image->setCar(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
 
         return $this;
     }

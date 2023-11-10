@@ -20,7 +20,7 @@ class ReviewsFixtures extends Fixture
         $review->setIsApproved(true);
         $manager->persist($review);
 
- $review2 = new Reviews();
+        $review2 = new Reviews();
         $review2->setFirstname('Lucie');
         $review2->setLastName('Lecoq');
         $review2->setEmail('coqlucie@gmail.com');
