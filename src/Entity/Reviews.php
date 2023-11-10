@@ -12,69 +12,122 @@ class Reviews
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+   
+
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $Text = null;
+    #[ORM\Column(length: 100)]
 
-    #[ORM\ManyToOne(inversedBy: 'check_review')]
-    private ?Administrator $administrator = null;
+    private ?string $firstname = null;
 
-    #[ORM\ManyToOne(inversedBy: 'check_review')]
-    private ?Employee $employee = null;
+    #[ORM\Column(length: 100)]
 
-    #[ORM\ManyToOne(inversedBy: 'add_review')]
-    private ?Customer $customer = null;
+    private ?string $lastname = null;
+
+    #[ORM\Column(length: 255)]
+
+ 
+    private ?string $email = null;
+
+    #[ORM\Column]
+ 
+    private ?int $rating = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+  
+    private ?string $message = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $publishedAt = null;
+
+    #[ORM\Column]
+    private ?bool $isApproved = false;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getText(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->Text;
+        return $this->firstname;
     }
 
-    public function setText(?string $Text): static
+    public function setFirstname(string $firstname): static
     {
-        $this->Text = $Text;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getAdministrator(): ?Administrator
+    public function getLastname(): ?string
     {
-        return $this->administrator;
+        return $this->lastname;
     }
 
-    public function setAdministrator(?Administrator $administrator): static
+    public function setLastname(string $lastname): static
     {
-        $this->administrator = $administrator;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
-    public function getEmployee(): ?Employee
+    public function getEmail(): ?string
     {
-        return $this->employee;
+        return $this->email;
     }
 
-    public function setEmployee(?Employee $employee): static
+    public function setEmail(string $email): static
     {
-        $this->employee = $employee;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getCustomer(): ?Customer
+    public function getRating(): ?int
     {
-        return $this->customer;
+        return $this->rating;
     }
 
-    public function setCustomer(?Customer $customer): static
+    public function setRating(int $rating): static
     {
-        $this->customer = $customer;
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): static
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(?\DateTimeInterface $publishedAt): static
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    public function isIsApproved(): ?bool
+    {
+        return $this->isApproved;
+    }
+
+    public function setIsApproved(bool $isApproved): static
+    {
+        $this->isApproved = $isApproved;
 
         return $this;
     }
