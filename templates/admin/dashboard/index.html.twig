@@ -1,0 +1,15 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content %}
+    <div class="content">
+        <div class="container-fluid">
+            <h1>Bienvenue dans votre espace administrateur!</h1>
+
+            <h2>Utilisateurs:</h2>
+            {{ easy_admin_render_list(employees, {
+                'search': true,  // Set to true to display the search bar
+                'paginator': true  // Set to true to display pagination
+            }) }}
+        </div>
+    </div>
+{% endblock %}
