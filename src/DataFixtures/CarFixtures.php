@@ -17,7 +17,6 @@ class CarFixtures extends Fixture
         $car->setKm(25700);
         $car->setYear(2018);
         $car->setprice(35000);
-        $car->setSlug(1);
         $car->setDescription('La BMW édition sport était proposée en deux versions de carrosserie, comme modèle à 
         trois et à cinq portes. Ce modèle à trois portes avec son concept d’espace variable, dispose d’un volume de
         presque 2000 litres lors du rabattement des sièges arrière et du siège du convoyeur. Ce grand volume résulte
@@ -31,7 +30,6 @@ class CarFixtures extends Fixture
         $car2->setKm(55700);
         $car2->setYear(2016);
         $car2->setprice(11000);
-        $car2->setSlug(2);
         $car2->setDescription('Un moteur essence et un moteur électrique combinés. Passez d’un transport purement 
         électrique, sans émissions de gaz d’échappement, à un mélange d’essence et d’électrique afin de réduire les 
         émissions sur les longs trajets. La recharge électrique de votre PHEV se fait en toute simplicité depuis votre
@@ -45,7 +43,6 @@ class CarFixtures extends Fixture
         $car3->setKm(85700);
         $car3->setYear(2015);
         $car3->setprice(7500);
-        $car3->setSlug(3);
         $car3->setDescription('La voiture parfaite ! Le confort est irréprochable, la finition le choix des matériaux 
         fait de cette voiture l’une des meilleures au monde. Idéale pour les longs trajets comme les plus courts.');
         $manager->persist($car3);
@@ -57,7 +54,6 @@ class CarFixtures extends Fixture
         $car4->setKm(95100);
         $car4->setYear(2018);
         $car4->setprice(8500);
-        $car4->setSlug(4);
         $car4->setDescription('La voiture a été entretenue par nos soins depuis le début, elle est dans un état irreprochable !');
         $manager->persist($car4);
 
@@ -68,7 +64,6 @@ class CarFixtures extends Fixture
         $car5->setKm(65220);
         $car5->setYear(2017);
         $car5->setprice(8100);
-        $car5->setSlug(5);
         $car5->setDescription('La voiture a été révision chez nous, controle technique ok dépechez-vous!');
         $manager->persist($car5);
 
