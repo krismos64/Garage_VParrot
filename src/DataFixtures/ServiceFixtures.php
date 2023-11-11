@@ -10,11 +10,11 @@ class ServiceFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $service = new Service();
-        $service->setTitle('Réparation mécanique');
-        $service->setDescription('Une panne, une casse, un accident ? On s’occupe d’effectuer les diagnostics et les
+        $service1 = new Service();
+        $service1->setTitle('Réparation mécanique');
+        $service1->setDescription('Une panne, une casse, un accident ? On s’occupe d’effectuer les diagnostics et les
         réparations mécaniques et carrosseries de votre auto');
-        $manager->persist($service);
+        $manager->persist($service1);
 
         $service2 = new Service();
         $service2->setTitle('Entretien et révision');
@@ -38,5 +38,12 @@ class ServiceFixtures extends Fixture
         $manager->persist($service4);
 
         $manager->flush();
+
+        // Références pour les objets Services
+        $this->addReference('Service-1', $service1);
+        $this->addReference('Service-2', $service2);
+        $this->addReference('Service-3', $service3);
+        $this->addReference('Service-4', $service4);
     }
 }
+   

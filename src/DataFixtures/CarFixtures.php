@@ -10,18 +10,18 @@ class CarFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $car = new Car();
-        $car->setname('BMW SPORT EDITION BLANCHE');
-        $car->setbrand('BMW');
-        $car->setmodel('SPORT EDITION');
-        $car->setKm(25700);
-        $car->setYear(2018);
-        $car->setprice(35000);
-        $car->setDescription('La BMW édition sport était proposée en deux versions de carrosserie, comme modèle à 
+        $car1 = new Car();
+        $car1->setname('BMW SPORT EDITION BLANCHE TOIT OUVRANT');
+        $car1->setbrand('BMW');
+        $car1->setmodel('SPORT EDITION');
+        $car1->setKm(25700);
+        $car1->setYear(2018);
+        $car1->setprice(35000);
+        $car1->setDescription('La BMW édition sport était proposée en deux versions de carrosserie, comme modèle à 
         trois et à cinq portes. Ce modèle à trois portes avec son concept d’espace variable, dispose d’un volume de
         presque 2000 litres lors du rabattement des sièges arrière et du siège du convoyeur. Ce grand volume résulte
         surtout de la construction spécifique de la grande hauteur de cette incroyable voiture.');
-        $manager->persist($car);
+        $manager->persist($car1);
 
         $car2 = new Car();
         $car2->setname('VOLKSWAGEN GOLF 7 BLANCHE');
@@ -69,5 +69,11 @@ class CarFixtures extends Fixture
 
         $manager->flush();
 
+// Références pour les objets Car
+$this->addReference('car-1', $car1);
+$this->addReference('car-2', $car2);
+$this->addReference('car-3', $car3);
+$this->addReference('car-4', $car4);
+$this->addReference('car-5', $car5);
     }
 }
