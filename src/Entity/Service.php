@@ -23,7 +23,7 @@ class Service
     private ?string $Description = null;
 
     #[ORM\ManyToOne(inversedBy: 'add_service')]
-    private ?Administrator $administrator = null;
+    private ?User $administrator = null;
 
     #[ORM\OneToMany(mappedBy: 'service', targetEntity: ServiceImage::class)]
     private Collection $image;
@@ -62,12 +62,12 @@ class Service
         return $this;
     }
 
-    public function getAdministrator(): ?Administrator
+    public function getAdministrator(): ?User
     {
         return $this->administrator;
     }
 
-    public function setAdministrator(?Administrator $administrator): static
+    public function setAdministrator(?User $administrator): static
     {
         $this->administrator = $administrator;
 

@@ -38,11 +38,8 @@ class Car
     private ?string $Description = null;
 
     #[ORM\ManyToOne(inversedBy: 'add_car')]
-    private ?Administrator $administrator = null;
-
-    #[ORM\ManyToOne(inversedBy: 'add_car')]
-    private ?Employee $employee = null;
-
+    private ?User $user = null;
+  
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: CarImage::class)]
     private Collection $image;
 
@@ -131,26 +128,14 @@ class Car
         return $this;
     }
 
-    public function getAdministrator(): ?Administrator
+    public function getUser(): ?User
     {
-        return $this->administrator;
+        return $this->user;
     }
 
-    public function setAdministrator(?Administrator $administrator): static
+    public function setUser(?User $user): static
     {
-        $this->administrator = $administrator;
-
-        return $this;
-    }
-
-    public function getEmployee(): ?Employee
-    {
-        return $this->employee;
-    }
-
-    public function setEmployee(?Employee $employee): static
-    {
-        $this->employee = $employee;
+        $this->user = $user;
 
         return $this;
     }

@@ -21,10 +21,7 @@ class Messages
     private ?string $Message = null;
 
     #[ORM\ManyToOne(inversedBy: 'consult_message')]
-    private ?Administrator $administrator = null;
-
-    #[ORM\ManyToOne(inversedBy: 'consult_message')]
-    private ?Employee $employee = null;
+    private ?user $user = null;    
 
     #[ORM\ManyToOne(inversedBy: 'leave_message')]
     private ?Customer $customer = null;
@@ -58,29 +55,18 @@ class Messages
         return $this;
     }
 
-    public function getAdministrator(): ?Administrator
+    public function getUser(): ?User
     {
-        return $this->administrator;
+        return $this->user;
     }
 
-    public function setAdministrator(?Administrator $administrator): static
+    public function setUser(?User $user): static
     {
-        $this->administrator = $administrator;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getEmployee(): ?Employee
-    {
-        return $this->employee;
-    }
-
-    public function setEmployee(?Employee $employee): static
-    {
-        $this->employee = $employee;
-
-        return $this;
-    }
 
     public function getCustomer(): ?Customer
     {

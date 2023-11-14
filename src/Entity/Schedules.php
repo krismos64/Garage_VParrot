@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\SchedulesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SchedulesRepository::class)]
+#[ORM\Entity(repositoryClass: SchedClosingTimeulesRepository::class)]
 class Schedules
 {
     #[ORM\Id]
@@ -23,7 +23,7 @@ class Schedules
     private ?string $ClosingTime = null;
 
     #[ORM\ManyToOne(inversedBy: 'modify_schedules')]
-    private ?Administrator $administrator = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -66,14 +66,14 @@ class Schedules
         return $this;
     }
 
-    public function getAdministrator(): ?Administrator
+    public function getUser(): ?User
     {
-        return $this->administrator;
+        return $this->user;
     }
 
-    public function setAdministrator(?Administrator $administrator): static
+    public function setUser(?User $user): static
     {
-        $this->administrator = $administrator;
+        $this->user = $user;
 
         return $this;
     }
