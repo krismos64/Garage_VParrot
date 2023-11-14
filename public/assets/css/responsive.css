@@ -37,21 +37,7 @@
     margin: 40px 10px 40px;
   }
 
-  /*** 
-=============================================
-    Rev slider wrapper style
-=============================================
-***/
-  .rev_slider_wrapper {
-  }
-  .rev_slider_wrapper .slide-content-box.mar-lft {
-    margin-left: 50px !important;
-  }
-  .rev_slider_wrapper .slide-content-box.mar-right {
-    margin-right: 50px !important;
-  }
 
-  /*** 
 =============================================
     Project area style
 =============================================
@@ -89,34 +75,7 @@
     margin: 20px auto 0;
   }
 
-  /*** 
-=============================================
-    Testimonial area style
-=============================================
-***/
-  .single-testimonial-item .top .left {
-    float: none !important;
-    display: block;
-  }
-  .single-testimonial-item .top .right {
-    float: none !important;
-    display: block;
-    margin-top: 10px;
-  }
-  .single-testimonial-item .top .right .review-box {
-    width: 115px;
-    padding: 0 15px;
-    border-radius: 20px;
-  }
-  .single-testimonial-item .bottom .left {
-    float: none !important;
-    display: block;
-    margin-bottom: 10px;
-  }
-  .single-testimonial-item .bottom .right {
-    float: none !important;
-    display: block;
-  }
+
 
   /*** 
 =============================================
@@ -170,28 +129,7 @@
     margin-right: 25px;
   }
 
-  /*** 
-=============================================
-    Testimonial area style three style
-=============================================
-***/
-  .single-testimonial-item .top .left img {
-    width: auto;
-  }
-  .single-testimonial-item .bottom .right img {
-    width: auto;
-  }
 
-  /*** 
-=============================================
-    Team area style
-=============================================
-***/
-  .team-area .owl-controls {
-    max-width: 100px;
-    margin: 0px auto 0;
-    position: relative;
-  }
 
   /*** 
 ============================================================================================================================================================================
@@ -231,53 +169,6 @@
     margin-right: 17px !important;
   }
 
-  /*** 
-=============================================
-    Rev slider wrapper style four style
-=============================================
-***/
-  .rev_slider_wrapper.style-four .slide-content-box.mar-lft {
-    margin-left: 100px !important;
-  }
-  .rev_slider_wrapper.style-four .slide-content-box.mar-right {
-    margin-right: 100px !important;
-  }
-
-  /*** 
-=============================================
-    Choose us area style
-=============================================
-***/
-  .choose-us-area .mar-left-minus {
-    margin-left: 0;
-    padding: 0;
-  }
-  .choose-us-area .img-holder img {
-    max-width: 100%;
-    float: none;
-    width: 100%;
-  }
-  .choose-us-area .text-box {
-    padding-top: 60px;
-    padding-bottom: 90px;
-    padding-left: 0;
-    background: #f9f9f9;
-    margin: 0;
-    max-width: 450px;
-  }
-
-  /*** 
-=============================================
-    Latest work area v2 style
-=============================================
-***/
-  .latest-work-area-v2 .sec-title {
-    float: none !important;
-    display: block;
-  }
-  .latest-work-area-v2 .project-filter {
-    float: left !important;
-  }
 
   /*** 
 =============================================
@@ -293,42 +184,6 @@
     line-height: 20px;
   }
 
-  /*** 
-=============================================
-    Blog Large Area style
-=============================================
-***/
-  .blog-large-area .sidebar-wrapper {
-    padding-left: 0;
-    padding-top: 70px;
-  }
-
-  /*** 
-=============================================
-    Blog Single Area style
-=============================================
-***/
-  .blog-single-area .blog-post {
-    padding-bottom: 70px;
-  }
-
-  /*** 
-=============================================
-    Shop Area style
-=============================================
-***/
-  .shop-area .shop-content {
-    padding-bottom: 70px;
-  }
-
-  /*** 
-=============================================
-    Single Shop Area style
-=============================================
-***/
-  .single-shop-area .sidebar-wrapper {
-    margin-top: 60px;
-  }
 
   /*** 
 =============================================
@@ -406,20 +261,6 @@
 
   /*** 
 =============================================
-    Rev slider wrapper style
-=============================================
-***/
-  .rev_slider_wrapper {
-  }
-  .rev_slider_wrapper .slide-content-box.mar-lft {
-    margin-left: 50px !important;
-  }
-  .rev_slider_wrapper .slide-content-box.mar-right {
-    margin-right: 50px !important;
-  }
-
-  /*** 
-=============================================
     Welcome area style
 =============================================
 ***/
@@ -457,83 +298,6 @@
   .single-project-item.span-20per {
     width: 100%;
     float: left;
-  }
-
-  /*** 
-=============================================
-    Slogan area style
-=============================================
-***/
-  .slogan-area {
-    padding: 33px 0 40px;
-  }
-  .slogan-area .title {
-    float: none !important;
-    text-align: center;
-  }
-  .slogan-area .title h1 {
-    margin: 9px 0;
-    margin-top: 0;
-  }
-  .slogan-area .button {
-    float: none !important;
-    text-align: center;
-    display: block;
-  }
-  .slogan-area .button a {
-    margin: 20px auto 0;
-  }
-
-  /*** 
-=============================================
-    Testimonial area style
-=============================================
-***/
-  .single-testimonial-item {
-    max-width: 440px;
-    float: none;
-    margin: 0 auto 30px;
-  }
-  .single-testimonial-item .img-holder img {
-    width: 100%;
-  }
-
-  /*** 
-=============================================
-    Appoinment area style
-=============================================
-***/
-  .appoinment-area .appoinment {
-    padding: 80px 0 40px;
-  }
-  .appoinment-area .img-holder {
-    position: relative;
-    bottom: 0;
-    right: 0;
-  }
-
-  /*** 
-=============================================
-    latest blog Area style
-=============================================
-***/
-  .latest-blog-area {
-    padding-bottom: 40px;
-  }
-  .latest-blog-area .single-blog-item {
-    margin-bottom: 50px;
-    max-width: 500px;
-    margin: 0 auto 40px;
-  }
-
-  /*** 
-=============================================
-    Model Area style
-=============================================
-***/
-  .model-area .single-model-item {
-    padding-bottom: 40px;
-    text-align: center;
   }
 
   /*** 
@@ -611,26 +375,6 @@
     margin: 0 !important;
   }
 
-  /*** 
-=============================================
-    Rev slider wrapper style two style
-=============================================
-***/
-  .rev_slider_wrapper.style-two {
-    margin-top: 0;
-  }
-  .rev_slider_wrapper.style-two .tparrows {
-    top: 50% !important;
-  }
-  .rev_slider_wrapper.style-two .slide-content-box.mar-lft {
-    margin-left: 80px !important;
-    position: relative;
-    padding-top: -120px !important;
-  }
-  .rev_slider_wrapper.style-two .slide-content-box.mar-right {
-    margin-right: 80px !important;
-    padding-top: -120px !important;
-  }
 
   /*** 
 =============================================
@@ -788,20 +532,6 @@
     margin-right: 17px !important;
   }
 
-  /*** 
-=============================================
-    Rev slider wrapper style four style
-=============================================
-***/
-  .rev_slider_wrapper.style-four {
-    margin: 0;
-  }
-  .rev_slider_wrapper.style-four .slide-content-box.mar-lft {
-    margin-left: 100px !important;
-  }
-  .rev_slider_wrapper.style-four .slide-content-box.mar-right {
-    margin-right: 100px !important;
-  }
 
   /*** 
 =============================================
@@ -1681,42 +1411,7 @@
     padding-right: 50px;
   }
 
-  /*** 
-=============================================
-    Latest work area v2 style
-=============================================
-***/
-  .latest-work-area-v2 .sec-title {
-    float: none !important;
-    display: block;
-  }
-  .latest-work-area-v2 .project-filter {
-    float: left !important;
-  }
-  .latest-work-area-v2 .project-filter li {
-    margin: 0 5px 10px;
-  }
 
-  /*** 
-=============================================
-    Contact info area style
-=============================================
-***/
-  .contact-info-area .single-box {
-    margin-bottom: 30px;
-  }
-
-  /*** 
-=============================================
-    Not found area style
-=============================================
-***/
-  .not-found-content .search-form {
-    width: 300px;
-  }
-  .not-found-content .search-form input[type="text"] {
-    width: 300px;
-  }
 
   /*** 
 =============================================
@@ -1799,157 +1494,7 @@
     padding-top: 50px;
   }
 
-  /*** 
-=============================================
-    Blog Large Area style
-=============================================
-***/
-  .blog-large-area .sidebar-wrapper {
-    padding-left: 0;
-    padding-top: 70px;
-  }
 
-  /*** 
-=============================================
-    Blog Single Area style
-=============================================
-***/
-  .blog-single-area .blog-post {
-    padding-bottom: 70px;
-  }
-  .blog-single-area .middle-content-box .img-holder,
-  .blog-single-area .middle-content-box .text-holder {
-    display: block;
-  }
-  .blog-single-area .middle-content-box .img-holder {
-    width: 100%;
-  }
-  .blog-single-area .middle-content-box .img-holder img {
-    width: 100%;
-  }
-  .blog-single-area .middle-content-box .text-holder {
-    padding-left: 0;
-    padding-top: 45px;
-  }
-  .blog-single-area .middle-content-box .text-holder:before {
-    top: 20px;
-    left: 0px;
-  }
-  .blog-single-area .tag-social-share-box .social-share {
-    float: left !important;
-    margin-top: 25px;
-  }
-  .single-blog-item .text-holder .meta-info li {
-    line-height: 22px;
-  }
-
-  /*** 
-=============================================
-    Shop Area style
-=============================================
-***/
-  .shop-area .shop-content {
-    padding-bottom: 70px;
-  }
-  .shop-area .showing-result-shorting .showing {
-    float: none !important;
-    display: block;
-  }
-  .shop-area .showing-result-shorting .shorting {
-    float: none !important;
-    display: block;
-    margin-top: 15px;
-  }
-
-  /*** 
-=============================================
-   Single Shop Area style
-=============================================
-***/
-  .single-shop-content .img-holder {
-    margin-right: 0;
-  }
-  .single-shop-content .content-box {
-    margin-top: 40px;
-    margin-left: 0;
-  }
-  .single-shop-area .sidebar-wrapper {
-    padding-top: 50px;
-  }
-
-  /*** 
-=============================================
-    Checkout Area style
-=============================================
-***/
-  .checkout-area .form.shipping-info {
-    padding-top: 70px;
-  }
-  .checkout-area .exisitng-customer h5 a {
-    display: block;
-    padding-left: 0;
-    margin: 7px 0 0;
-  }
-  .checkout-area .coupon h5 a {
-    display: block;
-    padding-left: 0;
-    margin: 7px 0 0;
-  }
-
-  /*** 
-=============================================
-    Login Register Area style
-=============================================
-***/
-  .login-register-area .form .social-icon {
-    float: left;
-    margin-right: -8px;
-    margin-top: 15px;
-  }
-  .login-register-area .form .social-icon .login-with {
-    left: 0;
-    position: relative;
-    top: 0;
-  }
-  .login-register-area .form.register {
-    padding-top: 70px;
-  }
-  .login-register-area .form h6 {
-    margin: 28px 0 0 0px;
-  }
-
-  /*** 
-=============================================
-   Cart area  style
-=============================================
-***/
-  .cart-middle .apply-coupon {
-    padding-left: 0;
-  }
-  .cart-middle .apply-coupon input[type="text"] {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  .cart-middle .update-cart {
-    float: left !important;
-    margin-top: 20px;
-  }
-  .cart-total {
-    padding-top: 70px;
-  }
-
-  /*** 
-=============================================
-   Get touch area  style
-=============================================
-***/
-  .get-touch-area .single-item {
-    margin-bottom: 40px;
-  }
-  .contact-form-right {
-    margin-top: 50px;
-  }
-}
 
 /* Wide Mobile Layout: 480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
