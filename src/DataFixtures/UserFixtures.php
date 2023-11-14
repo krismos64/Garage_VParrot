@@ -11,10 +11,10 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $user = new user();
-        $user->setEmail('rlegrand@gmail.com');
-        $user->setPassword('Roro782@');
-        $user->setFirstname('Romain');
-        $user->setLastname('Legrand');
+        $user->setEmail('v.parrot@gmail.com');
+        $user->setPassword('Toulouse31');
+        $user->setFirstname('Vincent');
+        $user->setLastname('Parrot');
         $manager->persist($user);
 
         $user2 = new user();
@@ -37,6 +37,13 @@ class UserFixtures extends Fixture
         $user4->setFirstname('Chris');
         $user4->setLastname('Raki');
         $manager->persist($user4);
+
+        $user5 = new user();
+        $user5->setEmail('rlegrand@gmail.com');
+        $user5->setPassword('Roro782@');
+        $user5->setFirstname('Romain');
+        $user5->setLastname('Legrand');
+        $manager->persist($user5);
 
         $manager->flush();
     }
