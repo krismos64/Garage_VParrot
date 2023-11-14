@@ -4,11 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Car;
 use App\Entity\CarImage;
-use App\Entity\Employee;
 use App\Entity\Reviews;
 use App\Entity\Schedules;
 use App\Entity\Service;
 use App\Entity\ServiceImage;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -55,6 +55,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Services du garage', 'fas fa-list', Service::class);
         yield MenuItem::linkToCrud('Images des services', 'fas fa-list', ServiceImage::class);
         yield MenuItem::linkToCrud('Horaires du garage', 'fas fa-list', Schedules::class);
-        yield MenuItem::linkToCrud('Employés', 'fas fa-list', Employee::class);
+        yield MenuItem::linkToCrud('Employés', 'fas fa-list', User::class);
     }
 }
