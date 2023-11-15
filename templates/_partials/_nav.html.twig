@@ -42,9 +42,6 @@
                     <a href="#"><i class="fa fa-youtube"></i></a>
                   </li>
                 </ul>
-                <div class="connexion-button pull-right">
-                  <a href="{{ path('app_login') }}">Connexion</a>
-                </div>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 				{% if app.user %}
                     {% if is_granted('ROLE_PRODUCT_ADMIN') %}
@@ -52,9 +49,15 @@
                             <a class="nav-link" href="{{ path('admin_index') }}">Administration</a>
                         </li>
                     {% endif %}
-                    <div class="connexion-button pull-right">
+                     <div class="connexion-button pull-right>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+                    </li>
+                    </div>
+                {% else %}
+                     <div class="connexion-button pull-right>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
                     </li>
                     </div>
 				{% endif %}
