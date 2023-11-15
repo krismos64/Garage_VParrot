@@ -1251,17 +1251,6 @@ button {
   line-height: 30px;
 }
 
-/* Page équipe area style */
-
-.team-page-area {
-  padding-top: 80px;
-  padding-bottom: 40px;
-}
-.team-page-area .single-team-member {
-  display: block;
-  padding-bottom: 40px;
-}
-
 /* Faq Content Area style */
 
 .faq-content-area {
