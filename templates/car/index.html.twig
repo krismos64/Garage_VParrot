@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
  
- {% block title %}Nos voitures d'occasion{% endblock %}
+ {% block title %}oitures d'occasion{% endblock %}
 
 {% block body %}
 
@@ -53,22 +53,9 @@
         </div>
       </section>
       <!--End welcome area-->
-            {% for car in car %}
-                {% if category.parent == null %}
-                    <div class="col-12">
-                        <h2>{{ car.name }}</h2>
-                    </div>
-                {% else %}
-                    <div class="col-4">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ car.name }}</h3>
-                                <a href="{{ path('car_list') }}" class="btn btn-primary">Voir les voitures</a>
-                            </div>
-                        </div>
-                    </div>    
-                {% endif %}
-            {% endfor %}
 
+<!--Partie véhicules d'occasion-->
+    <section class=
+    </section>
 
-{% endblock %}
+{% endblock %}       
