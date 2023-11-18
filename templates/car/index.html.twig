@@ -1,61 +1,41 @@
+{# templates/car/index.html.twig #}
+
 {% extends 'base.html.twig' %}
- 
- {% block title %}oitures d'occasion{% endblock %}
+
+{% block title %}Liste des Voitures{% endblock %}
 
 {% block body %}
+    <h1>Liste des Voitures</h1>
 
-<!--Start welcome Area-->
-      <section class="welcome-area sec-padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="text-holder">
-                <div class="sec-title">
-                  <h1>
-                    Bienvenue chez V.Parrot
-                    <span>Vente de véhicules d'occasion.</span>
-                  </h1>
-                  <span class="border"></span>
-                </div>
-                <div class="text-box">
-                  <p>
-                    Le garage automobile V.Parrot a été créé en 2021. Notre
-                    équipe de mécaniciens automobiles intervient sur tous types
-                    de véhicules de toutes marques et de tous modèles pour les
-                    particuliers et les professionnels. Confiez l’entretien, la
-                    réparation et le dépannage de votre voiture ou votre
-                    utilitaire à notre garage auto.
-                  </p>
-                  <p>
-                    Nous vendons également des véhicules d'occasion vérifiés et
-                    testés par notre équipe.
-                  </p>
-                  <div class="name-signature">
-                    <div class="name">
-                      <h3>Vincent Parrot, <span>Fondateur</span></h3>
-                    </div>
-                    <div class="signature">
-                      <img src="assets/icon/signature.png" alt="Signature de V.Parrot" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="img-holder wow slideInRight text-center">
-                <img src="images/cars/voitures.jpg" alt="Voitures en ligne à vendre" />
-                <div class="inner-content">
-                  <h3>Nous revendons de nombreux véhicules d'occasion</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--End welcome area-->
+    <ul>
+        {% for car in cars %}
+            <li>
+                <strong>{{ car.getBrand() }} {{ car.getModel() }}</strong><br>
+                Année: {{ car.getYear() }}<br>
+                Kilométrage: {{ car.getKm() }} km<br>
+                Prix: {{ car.getPrice() }}€<br>
+                Description: {{ car.getDescription() }}<br>
 
-<!--Partie véhicules d'occasion-->
-    <section class=
-    </section>
+                <!-- Affichage des images associées à la voiture -->
+                {% if car.getImages()|length > 0 %}
+                    <ul>
+                        {% for image in car.getImages() %}
+                            <li>
+                                <img src="{{ asset('/images/Cars/' ~ image.getTitle()) }}" alt="{{ image.getTitle() }}">
+                                {{ image.getDescription() }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 
-{% endblock %}       
+    <h2>Liste des Voitures par Marque</h2>
+
+    <ul>
+        {% for car in carsByBrand %}
+            <li>{{ car.getBrand() }} - {{ car.getModel() }} (Année: {{ car.getYear() }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

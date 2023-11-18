@@ -21,23 +21,9 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-     
-
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+
         return $this->redirect($adminUrlGenerator->setController(CarCrudController::class)->generateUrl());
-
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
-        //
-        // if ('jane' === $this->getUser()->getUsername()) {
-        //     return $this->redirect('...');
-        // }
-
-        // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
-        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
-        //
-        // return $this->render('some/path/my-dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -49,12 +35,18 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Voitures occasion', 'fas fa-list', Car::class);
-        yield MenuItem::linkToCrud('Images des voitures', 'fas fa-list', CarImage::class);
+
+        yield MenuItem::section('Gestion des Voitures');
+        yield MenuItem::linkToCrud('Voitures occasion', 'fas fa-car', Car::class);
+        yield MenuItem::linkToCrud('Images des voitures', 'fas fa-images', CarImage::class);
         yield MenuItem::linkToCrud('Avis clients', 'fas fa-list', Reviews::class);
-        yield MenuItem::linkToCrud('Services du garage', 'fas fa-list', Service::class);
-        yield MenuItem::linkToCrud('Images des services', 'fas fa-list', ServiceImage::class);
-        yield MenuItem::linkToCrud('Horaires du garage', 'fas fa-list', Schedules::class);
-        yield MenuItem::linkToCrud('Employés', 'fas fa-list', User::class);
+
+        yield MenuItem::section('Gestion des Services');
+        yield MenuItem::linkToCrud('Services du garage', 'fas fa-tools', Service::class);
+        yield MenuItem::linkToCrud('Images des services', 'fas fa-images', ServiceImage::class);
+        yield MenuItem::linkToCrud('Horaires du garage', 'fas fa-clock', Schedules::class);
+
+        yield MenuItem::section('Gestion des Employés');
+        yield MenuItem::linkToCrud('Employés', 'fas fa-users', User::class);
     }
 }

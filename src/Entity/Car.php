@@ -5,50 +5,49 @@ namespace App\Entity;
 use App\Repository\CarRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
 {
-
-    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Brand = null;
+    private ?string $brand = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Model = null;
+    private ?string $model = null;
 
     #[ORM\Column(length: 255)]
-
-    private ?string $Year = null;
+    private ?string $year = null;
 
     #[ORM\Column(length: 6)]
-    private ?string $Km = null;
+    private ?string $km = null;
 
     #[ORM\Column(length: 10)]
-    private ?string $Price = null;
+    private ?string $price = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'add_car')]
+    #[ORM\ManyToOne(inversedBy: 'addCar')]
     private ?User $user = null;
-  
-    #[ORM\OneToMany(mappedBy: 'car', targetEntity: CarImage::class)]
-    private Collection $image;
+
+    /**
+     * @ORM\OneToMany(mappedBy="car", targetEntity=CarImage::class, cascade={"persist", "remove"})
+     */
+    private Collection $images;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     public function __construct()
     {
-        $this->image = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -58,72 +57,72 @@ class Car
 
     public function getBrand(): ?string
     {
-        return $this->Brand;
+        return $this->brand;
     }
 
-    public function setBrand(string $Brand): static
+    public function setBrand(string $brand): self
     {
-        $this->Brand = $Brand;
+        $this->brand = $brand;
 
         return $this;
     }
 
     public function getModel(): ?string
     {
-        return $this->Model;
+        return $this->model;
     }
 
-    public function setModel(string $Model): static
+    public function setModel(string $model): self
     {
-        $this->Model = $Model;
+        $this->model = $model;
 
         return $this;
     }
 
     public function getYear(): ?string
     {
-        return $this->Year;
+        return $this->year;
     }
 
-    public function setYear(string $Year): static
+    public function setYear(string $year): self
     {
-        $this->Year = $Year;
+        $this->year = $year;
 
         return $this;
     }
 
     public function getKm(): ?string
     {
-        return $this->Km;
+        return $this->km;
     }
 
-    public function setKm(string $Km): static
+    public function setKm(string $km): self
     {
-        $this->Km = $Km;
+        $this->km = $km;
 
         return $this;
     }
 
     public function getPrice(): ?string
     {
-        return $this->Price;
+        return $this->price;
     }
 
-    public function setPrice(string $Price): static
+    public function setPrice(string $price): self
     {
-        $this->Price = $Price;
+        $this->price = $price;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): static
+    public function setDescription(?string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
@@ -133,7 +132,7 @@ class Car
         return $this->user;
     }
 
-    public function setUser(?User $user): static
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 
@@ -143,29 +142,24 @@ class Car
     /**
      * @return Collection<int, CarImage>
      */
-    public function getImage(): Collection
+    public function getImages(): Collection
     {
-        return $this->image;
+        return $this->images = new ArrayCollection;
     }
 
-    public function addImage(CarImage $image): static
+    public function addImage(CarImage $image): self
     {
-        if (!$this->image->contains($image)) {
-            $this->image->add($image);
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
             $image->setCar($this);
         }
 
         return $this;
     }
 
-    public function removeImage(CarImage $image): static
+    public function removeImage(CarImage $image): self
     {
-        if ($this->image->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getCar() === $this) {
-                $image->setCar(null);
-            }
-        }
+        $this->images->removeElement($image);
 
         return $this;
     }
@@ -175,10 +169,12 @@ class Car
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 }
+
+
