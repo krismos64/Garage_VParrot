@@ -51,9 +51,9 @@ class CarFixtures extends Fixture
         $car4->setname('RENAULT CAPTURE ORANGE');
         $car4->setbrand('RENAULT');
         $car4->setmodel('CAPTUR');
-        $car4->setKm(95100);
-        $car4->setYear(2018);
-        $car4->setprice(8500);
+        $car4->setKm('95100');
+        $car4->setYear('2018');
+        $car4->setprice('8500');
         $car4->setDescription('La voiture a été entretenue par nos soins depuis le début, elle est dans un état irreprochable !');
         $manager->persist($car4);
 

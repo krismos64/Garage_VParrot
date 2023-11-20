@@ -20,9 +20,9 @@ class CarImage
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
 
-    /**
-     * @ORM\ManyToOne(inversedBy: 'images')
-     */
+    
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    
     private ?Car $car = null;
 
     public function getId(): ?int

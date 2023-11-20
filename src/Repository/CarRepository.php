@@ -17,7 +17,7 @@ class CarRepository extends ServiceEntityRepository
      * Récupère toutes les voitures d'une marque spécifique
      *
      * @param string $brand
-     * @return Car[]|null
+     * @return Car[]
      */
 /**
 

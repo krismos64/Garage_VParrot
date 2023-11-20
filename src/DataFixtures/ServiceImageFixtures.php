@@ -5,31 +5,41 @@ namespace App\DataFixtures;
 use App\Entity\ServiceImage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ServiceImageFixtures extends Fixture
+class ServiceImageFixtures extends Fixture implements DependentFixtureInterface
 {
+    public function getDependencies()
+    {
+        return [
+            ServiceFixtures::class,
+            // Ajoutez d'autres dépendances si nécessaire
+        ];
+    }
+
     public function load(ObjectManager $manager): void
     {
         // Load ServiceImages for Service1
-        $this->loadServiceImagesForService($manager, $this->getReference('Service-1'), 'Réparation mécanique', 'VOITURE NOIRE EN REPARATION');
+        $this->loadServiceImagesForService($manager, $this->getReference('Service-1'), 'amortisseur.jpg', 'VOITURE NOIRE EN REPARATION');
 
         // Load ServiceImages for Service2
-        $this->loadServiceImagesForService($manager, $this->getReference('Service-2'), 'Entretien et révision', 'Vidange huile');
+        $this->loadServiceImagesForService($manager, $this->getReference('Service-2'), 'vidange.jpg', 'Vidange huile');
 
         // Load ServiceImages for Service3
-        $this->loadServiceImagesForService($manager, $this->getReference('Service-3'), 'Pare-brise et vitrage', 'Réparation pare-brise');
+        $this->loadServiceImagesForService($manager, $this->getReference('Service-3'), 'pare-brise.jpg', 'Réparation pare-brise');
+        
         // Load ServiceImages for Service4
-        $this->loadServiceImagesForService($manager, $this->getReference('Service-4'), 'Pneumatique', 'Changement Pneus');
+        $this->loadServiceImagesForService($manager, $this->getReference('Service-4'), 'pneus.jpg', 'Changement Pneus');
     
         $manager->flush();
     }
 
     private function loadServiceImagesForService(ObjectManager $manager, $serviceReference, $title, $description): void
     {
-        $ServiceImage = new ServiceImage();
-        $ServiceImage->setTitle($title);
-        $ServiceImage->setDescription($description);
-        $ServiceImage->setService($serviceReference);
-        $manager->persist($ServiceImage);
+        $serviceImage = new ServiceImage();
+        $serviceImage->setTitle($title);
+        $serviceImage->setDescription($description);
+        $serviceImage->setService($serviceReference);
+        $manager->persist($serviceImage);
     }
-      }
+}

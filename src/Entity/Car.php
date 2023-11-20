@@ -139,18 +139,16 @@ class Car
         return $this;
     }
 
-    /**
-     * @return Collection<int, CarImage>
-     */
     public function getImages(): Collection
     {
-        return $this->images = new ArrayCollection;
+    return new ArrayCollection($this->images->toArray());
+
     }
 
     public function addImage(CarImage $image): self
     {
         if (!$this->images->contains($image)) {
-            $this->images[] = $image;
+            $this->images->add($image);
             $image->setCar($this);
         }
 
@@ -159,7 +157,12 @@ class Car
 
     public function removeImage(CarImage $image): self
     {
-        $this->images->removeElement($image);
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getCar() === $this) {
+                $image->setCar(null);
+            }
+        }
 
         return $this;
     }
@@ -176,5 +179,3 @@ class Car
         return $this;
     }
 }
-
-

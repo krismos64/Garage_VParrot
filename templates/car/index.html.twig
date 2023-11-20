@@ -1,5 +1,3 @@
-{# templates/car/index.html.twig #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des Voitures{% endblock %}
@@ -7,31 +5,40 @@
 {% block body %}
     <h1>Liste des Voitures</h1>
 
-    <ul>
+    <div class="row">
         {% for car in cars %}
-            <li>
-                <strong>{{ car.getBrand() }} {{ car.getModel() }}</strong><br>
-                Année: {{ car.getYear() }}<br>
-                Kilométrage: {{ car.getKm() }} km<br>
-                Prix: {{ car.getPrice() }}€<br>
-                Description: {{ car.getDescription() }}<br>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Car details -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
+                        <p class="card-text">Année: {{ car.getYear() }}</p>
+                        <p class="card-text">Kilométrage: {{ car.getKm() }} km</p>
+                        <p class="card-text">Prix: {{ car.getPrice() }}€</p>
+                        <p class="card-text">Description: {{ car.getDescription() }}</p>
+                    </div>
 
-                <!-- Affichage des images associées à la voiture -->
-                {% if car.getImages()|length > 0 %}
-                    <ul>
-                        {% for image in car.getImages() %}
-                            <li>
-                                <img src="{{ asset('/images/Cars/' ~ image.getTitle()) }}" alt="{{ image.getTitle() }}">
-                                {{ image.getDescription() }}
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    <!-- Car images -->
+{% if car.getImages()|length > 0 %}
+    <ul class="list-group list-group-flush">
+        {% for image in car.getImages() %}
+            <li class="list-group-item">
+                {% if image %}
+                    <img src="{{ asset('/images/Cars/' ~ image.getTitle()) }}" alt="{{ image.getTitle() }}">
+                {% else %}
+                    <img src="{{ asset('/images/Services/vidange.jpg') }}" alt="Default Image">
                 {% endif %}
             </li>
         {% endfor %}
     </ul>
+{% endif %}
 
-    <h2>Liste des Voitures par Marque</h2>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+  <h2>Liste des Voitures par Marque</h2>
 
     <ul>
         {% for car in carsByBrand %}
@@ -39,3 +46,4 @@
         {% endfor %}
     </ul>
 {% endblock %}
+

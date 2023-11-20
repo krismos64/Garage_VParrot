@@ -21,6 +21,20 @@ class CarImageRepository extends ServiceEntityRepository
         parent::__construct($registry, CarImage::class);
     }
 
+    /**
+ * Récupère toutes les images associées à une voiture spécifique
+ *
+ * @param int $carId
+ * @return CarImage[]
+ */
+    public function findImagesByCar(int $carId): array
+    {
+    return $this->createQueryBuilder('ci')
+        ->andWhere('ci.car = :carId')
+        ->setParameter('carId', $carId)
+        ->getQuery()
+        ->getResult();
+    }
 //    /**
 //     * @return CarImage[] Returns an array of CarImage objects
 //     */
