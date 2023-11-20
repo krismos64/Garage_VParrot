@@ -3,7 +3,24 @@
 {% block title %}Liste des Voitures{% endblock %}
 
 {% block body %}
-    <h1>Liste des Voitures</h1>
+    <h1 id="main-title" class="text-center mb-4">Liste des Voitures</h1>
+
+    <script type="module">
+        // JavaScript to change background color dynamically
+        document.addEventListener("DOMContentLoaded", () => {
+            const title = document.getElementById("main-title");
+            title.style.backgroundColor = getRandomColor();
+        });
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
 
     <div class="row">
         {% for car in cars %}
@@ -14,31 +31,15 @@
                         <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
                         <p class="card-text">Année: {{ car.getYear() }}</p>
                         <p class="card-text">Kilométrage: {{ car.getKm() }} km</p>
-                        <p class="card-text">Prix: {{ car.getPrice() }}€</p>
-                        <p class="card-text">Description: {{ car.getDescription() }}</p>
+                        <p class="card-text text-primary">Prix: {{ car.getPrice() }}€</p>
+                        <p class="card-text">{{ car.getDescription() }}</p>
                     </div>
-
-                    <!-- Car images -->
-{% if car.getImages()|length > 0 %}
-    <ul class="list-group list-group-flush">
-        {% for image in car.getImages() %}
-            <li class="list-group-item">
-                {% if image %}
-                    <img src="{{ asset('/images/Cars/' ~ image.getTitle()) }}" alt="{{ image.getTitle() }}">
-                {% else %}
-                    <img src="{{ asset('/images/Services/vidange.jpg') }}" alt="Default Image">
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
                 </div>
             </div>
         {% endfor %}
     </div>
 
-  <h2>Liste des Voitures par Marque</h2>
+    <h2 class="mt-4">Liste des Voitures par Marque</h2>
 
     <ul>
         {% for car in carsByBrand %}
@@ -46,4 +47,3 @@
         {% endfor %}
     </ul>
 {% endblock %}
-

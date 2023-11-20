@@ -83,7 +83,7 @@
                       <span class="flaticon-envelope"></span>
                     </div>
                     <div class="text-holder">
-                      <h5><a href="mailto:v.parrot@gmail.com">v.parrot@gmail.com</h5>
+                      <h5><a href="mailto:v.parrot@gmail.com">v.parrot@gmail.com</h5></a>
                     </div>
                   </li>
                 </ul>
@@ -101,22 +101,28 @@
             </div>
             <!--End single 3 footer widget-->
 
-            <!--Start single 4 footer widget-->
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-              <div class="single-footer-widget clearfix">
-                <div class="title">
-                  <h3>Horaires d'ouverture</h3>
-            </div>
-                  <ul class="working-hours">
-                  <li>Lundi: <span>8h45-12h 14h-18h</span></li>
-                  <li>Mardi: <span>8h45-12h 14h-18h</span></li>
-                  <li>Mercredi: <span>8h45-12h 14h-18h</span></li>
-                  <li>Jeudi: <span>8h45-12h 14h-18h</span></li>
-                  <li>Vendredi: <span>8h45-12h 14h-18h</span></li>
-                  <li>Samedi: <span>8h45-12h</span></li>
-                  <li>Dimanche: <span class="closed">Fermé</span></li>
-                </ul>
-            <!--End single 4 footer widget-->
+         <!--Start single 4 footer widget-->
+<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <div class="single-footer-widget">
+
+    <style>
+    .footer-widget-title {
+        font-size: 57px; 
+        color: #1a73e8;
+    }
+</style>
+
+        <div class="working-hours">
+            <h2 class="footer-widget-title">Horaires</h2>
+            <ul>
+                {% for day, hours in workingHours %}
+                    <li>{{ day }}: {% if hours %}{{ hours.OpeningTime }} - {{ hours.ClosingTime }}{% else %}Fermé{% endif %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End single 4 footer widget-->
           </div>
         </div>
       </footer>
