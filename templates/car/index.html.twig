@@ -13,22 +13,6 @@
          }
        </style>
     <h1 id="main-title" class="text-center mb-4">En vente, chez V.Parrot</h1>
-
-    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-
-    <script type="module">
-        document.addEventListener("DOMContentLoaded", () => {
-            // Animation for the main title
-            gsap.from('#main-title', { opacity: 0, duration: 2, y: -50, ease: 'power2.out' });
-
-            // Animation for individual car cards
-            gsap.from('.card', { opacity: 0, duration: 2, y: 50, ease: 'power2.out', stagger: 0.2 });
-
-            // Animation for the list of cars by brand
-            gsap.from('ul li', { opacity: 0, duration: 2, x: -50, ease: 'power2.out', stagger: 0.2 });
-        });
-    </script>
-
     <div class="row">
         {% for car in cars %}
             <div class="col-md-4 mb-4">

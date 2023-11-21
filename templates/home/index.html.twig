@@ -352,24 +352,4 @@
 </section>
 <!-- End reviews section -->
 
-<script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-
-<script>
-  // Animation for the welcome area using GSAP
-  gsap.from('.text-holder', { opacity: 0, duration: 2, y: -50, ease: 'power2.out' });
-  gsap.from('.img-holder', { opacity: 0, duration: 2, x: 50, ease: 'power2.out', delay: 0.5 });
-
-  // Animation for the features area using GSAP
-  gsap.from('.single-features-item', { opacity: 0, duration: 2, y: 50, ease: 'power2.out', stagger: 0.2 });
-
-  // Animation for the project area using GSAP
-  gsap.from('.single-project-item', { opacity: 0, duration: 2, y: 50, ease: 'power2.out', stagger: 0.2 });
-
-  // Animation for the slogan area using GSAP
-  gsap.from('.inner-content', { opacity: 0, duration: 2, y: 50, ease: 'power2.out', delay: 0.5 });
-
-  // Animation for the reviews section using GSAP
-  gsap.from('.review-card', { opacity: 0, duration: 2, y: 50, ease: 'power2.out', stagger: 0.2 });
-</script>
-
 {% endblock %}

@@ -45,20 +45,4 @@
     </div>
   </div>
 </section>
-
-<script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-<script type="module">
-    document.addEventListener("DOMContentLoaded", () => {
-        // Animation for individual service items
-        gsap.from('.single-service-item', {
-            opacity: 0,
-            scale: 0.5,
-            duration: 2,
-            stagger: 0.2,
-            ease: 'power2.out'
-        });
-    });
-</script>
-
-
 {% endblock %}
