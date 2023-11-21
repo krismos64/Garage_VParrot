@@ -30,4 +30,12 @@ class CarRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findAllWithImages(): array
+{
+    return $this->createQueryBuilder('car')
+        ->leftJoin('car.images', 'images')
+        ->addSelect('images')
+        ->getQuery()
+        ->getResult();
+}
 }

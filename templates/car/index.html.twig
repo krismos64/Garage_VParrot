@@ -3,20 +3,54 @@
 {% block title %}Liste des Voitures{% endblock %}
 
 {% block body %}
-<style>
-    h1 {
-        text-align: center;
-        color: #233588; 
-        margin-top: 50px;
-        line-height: 1.5;
+    <style>
+        h1 {
+            text-align: center;
+            color: #233588;
+            margin-top: 50px;
+            line-height: 1.5;
+        }
+        /* Carrousel cars images */
+        .carousel-inner img {
+            max-height: 400px; 
+            margin: auto; 
+        }
+    </style>
 
-         }
-       </style>
     <h1 id="main-title" class="text-center mb-4">En vente, chez V.Parrot</h1>
+
     <div class="row">
         {% for car in cars %}
             <div class="col-md-4 mb-4">
                 <div class="card">
+                    <!-- Car images -->
+                    {% set carImages = car.getImages() %}
+                    {% if carImages is not empty %}
+                        <div id="carouselExampleControls{{ car.getId() }}" class="carousel slide">
+                            <div class="carousel-inner">
+                                {% set firstImage = true %}
+                                {% for image in carImages %}
+                                    <div class="carousel-item {% if firstImage %}active{% endif %}">
+                                    <img src="{{ path('uploads_cars', {'filename': image.getTitle()}) }}" class="d-block w-100" alt="Car Image">
+
+                                    </div>
+                                    {% set firstImage = false %}
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls{{ car.getId() }}" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Précédent</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls{{ car.getId() }}" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Suivant</span>
+                            </a>
+                        </div>
+                    {% else %}
+                        <!-- Default image or placeholder image -->
+                        <img src="{{ asset('/uploads/Cars/CitroënC3-1.jpg') }}" class="card-img-top" alt="Default Image">
+                    {% endif %}
+
                     <!-- Car details -->
                     <div class="card-body">
                         <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
@@ -29,5 +63,4 @@
             </div>
         {% endfor %}
     </div>
-
 {% endblock %}

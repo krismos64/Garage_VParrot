@@ -23,9 +23,9 @@
           <div class="single-service-item text-center" id="service-{{ loop.index }}">
             <div class="img-holder">
               {% if service.image.first() %}
-                <img src="{{ asset('images/Services/' ~ service.image.first().getTitle()) }}" alt="{{ service.getTitle() }}">
+                <img src="{{ asset('/uploads/Services/' ~ service.image.first().getTitle()) }}" alt="{{ service.getTitle() }}">
               {% else %}
-                <img src="{{ asset('images/Services/vidange.jpg') }}" alt="Default Image">
+                <img src="{{ asset('/uploads/Services/vidange.jpg') }}" alt="Default Image">
               {% endif %}
               <div class="overlay-style-one">
                 <div class="box">

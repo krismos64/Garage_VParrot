@@ -1,3 +1,7 @@
 controllers:
   resource: ../src/Controller/
   type: attribute
+
+uploads_cars:
+  path: /uploads/Cars/{filename}
+  controller: App\Controller\CarController::uploadsCars

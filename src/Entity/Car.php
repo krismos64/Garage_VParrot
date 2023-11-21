@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\CarImage;
 use App\Repository\CarRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -36,15 +37,17 @@ class Car
 
     #[ORM\ManyToOne(inversedBy: 'addCar')]
     private ?User $user = null;
-
-    /**
-     * @ORM\OneToMany(mappedBy="car", targetEntity=CarImage::class, cascade={"persist", "remove"})
-     */
+    
+    #[ORM\OneToMany(mappedBy: 'car', targetEntity: CarImage::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $images;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
     public function __construct()
     {
         $this->images = new ArrayCollection();

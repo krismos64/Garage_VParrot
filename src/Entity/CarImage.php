@@ -15,7 +15,7 @@ class CarImage
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
@@ -32,12 +32,12 @@ class CarImage
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): static
+    public function setTitle(string $title): static
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
