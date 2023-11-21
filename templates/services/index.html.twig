@@ -4,12 +4,23 @@
 
 {% block body %}
 
+ <style>
+    h1 {
+        text-align: center;
+        color: #233588; 
+        margin-top: 50px;
+        line-height: 1.5;
+
+         }
+       </style>
+<h1>Les services que nous proposons actuellement :</h1>
+
 <section class="service-area service-page">
   <div class="container">
     <div class="row">
       {% for service in services %}
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="single-service-item text-center">
+          <div class="single-service-item text-center" id="service-{{ loop.index }}">
             <div class="img-holder">
               {% if service.image.first() %}
                 <img src="{{ asset('images/Services/' ~ service.image.first().getTitle()) }}" alt="{{ service.getTitle() }}">
@@ -34,5 +45,20 @@
     </div>
   </div>
 </section>
+
+<script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        // Animation for individual service items
+        gsap.from('.single-service-item', {
+            opacity: 0,
+            scale: 0.5,
+            duration: 2,
+            stagger: 0.2,
+            ease: 'power2.out'
+        });
+    });
+</script>
+
 
 {% endblock %}
