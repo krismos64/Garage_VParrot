@@ -32,7 +32,9 @@ class CarImageFixtures extends Fixture
         $this->loadCarImagesForCar($manager, $this->getReference('car-5'), 'RenaultClio-2.webp', 'RENAULT CLIO 4 BLANCHE COTE');
         $this->loadCarImagesForCar($manager, $this->getReference('car-5'), 'RenaultClio-3.webp', 'RENAULT CLIO 4 BLANCHE AVANT');
 
-
+        // Load CarImages for Car5
+        $this->loadCarImagesForCar($manager, $this->getReference('car-6'), 'VolkswagenPolo-2.webp', 'VOLKSWAGEN POLO ROUGE DROITE');
+        $this->loadCarImagesForCar($manager, $this->getReference('car-6'), 'VolkswagenPolo-3.webp', 'VOLKSWAGEN POLO ROUGE GAUCHE');
 
         $manager->flush();
     }

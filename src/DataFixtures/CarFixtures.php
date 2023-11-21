@@ -67,6 +67,15 @@ class CarFixtures extends Fixture
         $car5->setDescription('La voiture a été révision chez nous, controle technique ok dépechez-vous!');
         $manager->persist($car5);
 
+        $car6 = new Car();
+        $car6->setname('VOLKSWAGEN POLO ROUGE');
+        $car6->setbrand('VOLKSWAGEN');
+        $car6->setmodel('POLO');
+        $car6->setKm(22422);
+        $car6->setYear(2022);
+        $car6->setprice(14100);
+        $car6->setDescription('La voiture est en super état, controle technique ok première main comme neuve full options');
+        $manager->persist($car6); 
         $manager->flush();
 
 // Références pour les objets Car
@@ -75,5 +84,6 @@ $this->addReference('car-2', $car2);
 $this->addReference('car-3', $car3);
 $this->addReference('car-4', $car4);
 $this->addReference('car-5', $car5);
+$this->addReference('car-6', $car6);
     }
 }

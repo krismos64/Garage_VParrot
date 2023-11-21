@@ -107,13 +107,13 @@
 
     <style>
     .footer-widget-title {
-        font-size: 53px; 
+        font-size: 55px; 
         color: #1a73e8;
     }
 </style>
 
         <div class="working-hours">
-            <h2 class="footer-widget-title">Horaires</h2>
+            <h3 class="footer-widget-title">Horaires</h3>
             <ul>
                 {% for day, hours in workingHours %}
                     <li>{{ day }}: {% if hours %}{{ hours.OpeningTime }} - {{ hours.ClosingTime }}{% else %}Fermé{% endif %}</li>
