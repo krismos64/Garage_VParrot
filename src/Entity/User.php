@@ -3,14 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet e-mail')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -21,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'json')]
     private array $roles = [];
 
     /**
@@ -31,29 +32,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Firstname = null;
+    private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Lastname = null;
+    private ?string $lastname = null;
+
+    
+    #[ORM\OneToMany(targetEntity:Service::class, mappedBy:"administrator")]
+     
+    private Collection $add_service;
+
+    
+     #[ORM\OneToMany(targetEntity:Reviews::class, mappedBy:"customer")]
+     
+    private Collection $add_review;
+
+    
+     #[ORM\OneToMany(targetEntity:Schedules::class, mappedBy:"user")]
+    
+    private Collection $modify_schedules;
+
+    
+     #[ORM\OneToMany(targetEntity:Car::class, mappedBy:"user")]
+    
+    private Collection $addCar;
+
+    
+     #[ORM\OneToMany(targetEntity:Messages::class, mappedBy:"user")]
+     
+    private Collection $consult_message;
+
+    public function __construct()
+    {
+        $this->add_service = new ArrayCollection();
+        $this->add_review = new ArrayCollection();
+        $this->modify_schedules = new ArrayCollection();
+        $this->addCar = new ArrayCollection();
+        $this->consult_message = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-    public function getRole(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRole(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -75,7 +95,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->Lastname;
+        return (string) $this->email;
     }
 
     /**
@@ -84,7 +104,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+        // garantir que chaque utilisateur a au moins le rôle ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -100,7 +120,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see PasswordAuthenticatedUserInterface
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -117,30 +137,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+        // Si vous stockez des données temporaires sensibles sur l'utilisateur, effacez-les ici
         // $this->plainPassword = null;
     }
 
     public function getFirstname(): ?string
     {
-        return $this->Firstname;
+        return $this->firstname;
     }
 
-    public function setFirstname(string $Firstname): static
+    public function setFirstname(string $firstname): static
     {
-        $this->Firstname = $Firstname;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     public function getLastname(): ?string
     {
-        return $this->Lastname;
+        return $this->lastname;
     }
 
-    public function setLastname(string $Lastname): static
+    public function setLastname(string $lastname): static
     {
-        $this->Lastname = $Lastname;
+        $this->lastname = $lastname;
 
         return $this;
     }

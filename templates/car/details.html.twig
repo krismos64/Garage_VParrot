@@ -10,22 +10,22 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
-                <p class="card-text"><strong>Année:</strong> {{ car.getYear() }}</p>
-                <p class="card-text"><strong>Kilométrage:</strong> {{ car.getKm() }} km</p>
-                <p class="card-text"><strong>Prix:</strong> {{ car.getPrice() }}€</p>
-                <p class="card-text"><strong>Description:</strong> {{ car.getDescription() }}</p>
+                <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+                <p class="card-text"><strong>Année:</strong> {{ car.year }}</p>
+                <p class="card-text"><strong>Kilométrage:</strong> {{ car.km }} km</p>
+                <p class="card-text"><strong>Prix:</strong> {{ car.price }}€</p>
+                <p class="card-text"><strong>Description:</strong> {{ car.description }}</p>
 
                 <!-- Display car images as thumbnails -->
-                {% if car.getImages()|length > 0 %}
+                {% if car.images|length > 0 %}
                     <h5 class="mt-3">Images de la Voiture</h5>
                     <div class="row">
-                        {% for image in car.getImages() %}
+                        {% for image in car.images %}
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('/images/Cars/' ~ image.getTitle()) }}" class="card-img-top" alt="{{ image.getTitle() }}">
+                                    <img src="{{ asset('/images/Cars/' ~ image.title) }}" class="card-img-top" alt="{{ image.title }}">
                                     <div class="card-body">
-                                        <p class="card-text">{{ image.getDescription() }}</p>
+                                        <p class="card-text">{{ image.description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -36,3 +36,4 @@
         </div>
     </div>
 {% endblock %}
+

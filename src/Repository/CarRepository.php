@@ -22,20 +22,35 @@ class CarRepository extends ServiceEntityRepository
 /**
 
  */
- public function findCarsByBrand(string $brand): ?array
+
+  public function findAllWithImages(): array
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.brand = :brand') 
-            ->setParameter('brand', $brand)
+        return $this->createQueryBuilder('car')
             ->getQuery()
             ->getResult();
-    }
-    public function findAllWithImages(): array
+            }
+
+
+// CarRepository.php
+
+public function findByBrand(string $brand): array
 {
-    return $this->createQueryBuilder('car')
-        ->leftJoin('car.images', 'images')
-        ->addSelect('images')
+    return $this->createQueryBuilder('c')
+        ->andWhere('c.brand = :brand')
+        ->setParameter('brand', $brand)
         ->getQuery()
         ->getResult();
+}
+
+public function __call($method, $arguments)
+{
+    // Check if the method name starts with "findCarsBy"
+    if (strpos($method, 'findCarsBy') === 0) {
+        // Extract the brand name from the method name
+        $brand = lcfirst(substr($method, 11));
+
+        return $this->findBy(['brand' => $brand]);
+    }
+
 }
 }

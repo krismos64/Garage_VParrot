@@ -21,7 +21,7 @@ class Messages
     private ?string $Message = null;
 
     #[ORM\ManyToOne(inversedBy: 'consult_message')]
-    private ?user $user = null;    
+    private ?User $user = null;    
 
     #[ORM\ManyToOne(inversedBy: 'leave_message')]
     private ?Customer $customer = null;

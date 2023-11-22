@@ -38,7 +38,7 @@ class CarController extends AbstractController
 
     public function uploadsCars(string $filename)
     {
-        $filePath = $this->getParameter('kernel.project_dir') . '/public/uploads/Cars/' . $filename;
+        $filePath = $this->getParameter('kernel.project_dir') . 'uploads/Cars/' . $filename;
 
         return new BinaryFileResponse($filePath, 200, [], false, ResponseHeaderBag::DISPOSITION_INLINE);
     }

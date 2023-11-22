@@ -12,8 +12,8 @@
         }
         /* Carrousel cars images */
         .carousel-inner img {
-            max-height: 400px; 
-            margin: auto; 
+            max-height: 400px;
+            margin: auto;
         }
     </style>
 
@@ -24,24 +24,21 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <!-- Car images -->
-                    {% set carImages = car.getImages() %}
-                    {% if carImages is not empty %}
-                        <div id="carouselExampleControls{{ car.getId() }}" class="carousel slide">
+                    {% if car.imagePath is not empty %}
+                        <div id="carouselExampleControls{{ car.id }}" class="carousel slide">
                             <div class="carousel-inner">
                                 {% set firstImage = true %}
-                                {% for image in carImages %}
-                                    <div class="carousel-item {% if firstImage %}active{% endif %}">
-                                    <img src="{{ path('uploads_cars', {'filename': image.getTitle()}) }}" class="d-block w-100" alt="Car Image">
-
-                                    </div>
-                                    {% set firstImage = false %}
-                                {% endfor %}
+                                <div class="carousel-item {% if firstImage %}active{% endif %}">
+                                    <img src="{{ asset(car.imagePath) }}" class="d-block w-100" alt="Car Image">
+                                </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls{{ car.getId() }}" role="button" data-slide="prev">
+                            <a class="carousel-control-prev" href="#carouselExampleControls{{ car.id }}" role="button"
+                               data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Précédent</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls{{ car.getId() }}" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleControls{{ car.id }}" role="button"
+                               data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Suivant</span>
                             </a>
@@ -53,11 +50,11 @@
 
                     <!-- Car details -->
                     <div class="card-body">
-                        <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
-                        <p class="card-text">Année: {{ car.getYear() }}</p>
-                        <p class="card-text">Kilométrage: {{ car.getKm() }} km</p>
-                        <p class="card-text text-primary">Prix: {{ car.getPrice() }}€</p>
-                        <p class="card-text">{{ car.getDescription() }}</p>
+                        <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+                        <p class="card-text">Année: {{ car.year }}</p>
+                        <p class="card-text">Kilométrage: {{ car.km }} km</p>
+                        <p class="card-text text-primary">Prix: {{ car.price }}€</p>
+                        <p class="card-text">{{ car.description }}</p>
                     </div>
                 </div>
             </div>
