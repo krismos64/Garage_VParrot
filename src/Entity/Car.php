@@ -67,7 +67,7 @@ class Car
         $carImage = new CarImage();
         $carImage->setTitle($imageName);
         $carImage->setCar($this);
-        $carImage->setDescription('Description de l\'image'); // Vous pouvez également définir la description
+        $carImage->setDescription('Description de l\'image'); 
 
         $this->images[] = $carImage;
     }

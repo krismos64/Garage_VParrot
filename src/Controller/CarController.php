@@ -24,14 +24,11 @@ class CarController extends AbstractController
         foreach ($days as $day) {
         $workingHours[$day] = $schedulesRepository->findWorkingHoursByDay($day);
      }
-        
-        // Utilize the method to get all cars of a specific brand
-        $carsByBrand = $carRepository->findCarsByBrand('VotreMarque');
+
 
         return $this->render('car/index.html.twig', [
             'controller_name' => 'CarController',
             'cars' => $cars,
-            'carsByBrand' => $carsByBrand,
             'workingHours' => $workingHours,
             ]);
     }
@@ -42,13 +39,4 @@ class CarController extends AbstractController
 
         return new BinaryFileResponse($filePath, 200, [], false, ResponseHeaderBag::DISPOSITION_INLINE);
     }
-
-
-    #[Route('/voiture/{id}', name: 'app_car_details')]
-    public function details(Car $car): Response
-    {
-        return $this->render('car/details.html.twig', [
-            'car' => $car,
-        ]);
     }
-}

@@ -25,14 +25,45 @@ class Service
     #[ORM\ManyToOne(inversedBy: 'add_service')]
     private ?User $administrator = null;
 
-    #[ORM\OneToMany(mappedBy: 'service', targetEntity: ServiceImage::class)]
-    private Collection $image;
+   #[ORM\OneToMany(mappedBy: 'service', targetEntity: ServiceImage::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
+private Collection $images;
 
+public function getImages(): Collection
+{
+    return $this->images;
+}
+
+public function setImages(Collection $images): self
+{
+    $this->images = $images;
+
+    return $this;
+}
     public function __construct()
     {
-        $this->image = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
+    public function addImage(ServiceImage $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setService($this);
+        }
+
+        return $this;
     }
 
+    public function removeImage(ServiceImage $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            if ($image->getService() === $this) {
+                $image->setService(null);
+            }
+        }
+
+        return $this;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -73,34 +104,8 @@ class Service
 
         return $this;
     }
+    }
 
     /**
      * @return Collection<int, ServiceImage>
      */
-    public function getImage(): Collection
-    {
-        return $this->image;
-    }
-
-    public function addImage(ServiceImage $image): static
-    {
-        if (!$this->image->contains($image)) {
-            $this->image->add($image);
-            $image->setService($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(ServiceImage $image): static
-    {
-        if ($this->image->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getService() === $this) {
-                $image->setService(null);
-            }
-        }
-
-        return $this;
-    }
-}

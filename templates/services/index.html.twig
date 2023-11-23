@@ -22,8 +22,8 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
           <div class="single-service-item text-center" id="service-{{ loop.index }}">
             <div class="img-holder">
-              {% if service.image.first() %}
-                <img src="{{ asset('/uploads/Services/' ~ service.image.first().getTitle()) }}" alt="{{ service.getTitle() }}">
+              {% if service.images.first() %}
+                <img src="{{ asset('/uploads/Services/' ~ service.images.first().getTitle()) }}" alt="{{ service.getTitle() }}">
               {% else %}
                 <img src="{{ asset('/uploads/Services/vidange.jpg') }}" alt="Default Image">
               {% endif %}
