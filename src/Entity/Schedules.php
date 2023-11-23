@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\SchedulesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SchedClosingTimeulesRepository::class)]
+#[ORM\Entity(repositoryClass: SchedulesRepository::class)]
 class Schedules
 {
     #[ORM\Id]
