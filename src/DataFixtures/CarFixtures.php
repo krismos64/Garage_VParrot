@@ -21,8 +21,6 @@ class CarFixtures extends Fixture
         trois et à cinq portes. Ce modèle à trois portes avec son concept d’espace variable, dispose d’un volume de
         presque 2000 litres lors du rabattement des sièges arrière et du siège du convoyeur. Ce grand volume résulte
         surtout de la construction spécifique de la grande hauteur de cette incroyable voiture.');
-        $car1->addImage('bmw-64b576fb6282b296177986.jpg');
-        $car1->addImage('bmw-interieur-64b576fb79185998642121.jpg');
         $manager->persist($car1);
 
         $car2 = new Car();
@@ -36,8 +34,6 @@ class CarFixtures extends Fixture
         électrique, sans émissions de gaz d’échappement, à un mélange d’essence et d’électrique afin de réduire les 
         émissions sur les longs trajets. La recharge électrique de votre PHEV se fait en toute simplicité depuis votre
         domicile ou sur votre lieu de destination.');
-        $car2->addImage('VolkswagenGolf-2.webp');
-        $car2->addImage('VolkswagenGolf-3.webp');
         $manager->persist($car2);
 
         $car3 = new Car();
@@ -49,9 +45,6 @@ class CarFixtures extends Fixture
         $car3->setprice(7500);
         $car3->setDescription('La voiture parfaite ! Le confort est irréprochable, la finition le choix des matériaux 
         fait de cette voiture l’une des meilleures au monde. Idéale pour les longs trajets comme les plus courts.');
-        $car3->addImage('peugeot208-1.webp');
-        $car3->addImage('peugeot208-2.webp');
-        $car3->addImage('peugeot208-3.webp');
         $manager->persist($car3);
 
         $car4 = new Car();
@@ -62,8 +55,6 @@ class CarFixtures extends Fixture
         $car4->setYear('2018');
         $car4->setPrice('8500');
         $car4->setDescription('La voiture a été entretenue par nos soins depuis le début, elle est dans un état irreprochable !');
-        $car4->addImage('RenaultCaptur-1.webp');
-        $car4->addImage('RenaultCaptur-2.webp');
         $manager->persist($car4);
 
         $car5 = new Car();
@@ -74,9 +65,6 @@ class CarFixtures extends Fixture
         $car5->setYear(2017);
         $car5->setPrice(8100);
         $car5->setDescription('La voiture a été révision chez nous, controle technique ok dépechez-vous!');
-        $car5->addImage('RenaultClio-1.webp');
-        $car5->addImage('RenaultClio-2.webp');
-        $car5->addImage('RenaultClio-3.webp');
         $manager->persist($car5);
 
         $car6 = new Car();
@@ -87,8 +75,6 @@ class CarFixtures extends Fixture
         $car6->setYear(2022);
         $car6->setPrice(14100);
         $car6->setDescription('La voiture est en super état, controle technique ok première main comme neuve full options');
-        $car6->addImage('VolkswagenPolo-2.webp');
-        $car6->addImage('VolkswagenPolo-3.webp');
         $manager->persist($car6); 
         $manager->flush();
 
