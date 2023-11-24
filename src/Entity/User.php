@@ -38,11 +38,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lastname = null;
 
     
-    #[ORM\OneToMany(targetEntity:Service::class, mappedBy:"administrator")]
-     
-    private Collection $add_service;
-
-    
      #[ORM\OneToMany(targetEntity:Reviews::class, mappedBy:"customer")]
      
     private Collection $add_review;
@@ -75,7 +70,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+    public function setId(int $id): static
+    {
+        $this->id = $id;
 
+        return $this;
+    }
     public function getEmail(): ?string
     {
         return $this->email;
@@ -104,8 +104,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // garantir que chaque utilisateur a au moins le rôle ROLE_USER
-        $roles[] = 'ROLE_USER';
+        
+        $roles[] = 'ROLE_ADMIN';
 
         return array_unique($roles);
     }
@@ -120,6 +120,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see PasswordAuthenticatedUserInterface
      */
+    
     public function getPassword(): ?string
     {
         return $this->password;
@@ -137,8 +138,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function eraseCredentials(): void
     {
-        // Si vous stockez des données temporaires sensibles sur l'utilisateur, effacez-les ici
-        // $this->plainPassword = null;
+
     }
 
     public function getFirstname(): ?string

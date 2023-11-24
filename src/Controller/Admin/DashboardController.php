@@ -46,7 +46,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Images des services', 'fas fa-images', ServiceImage::class);
         yield MenuItem::linkToCrud('Horaires du garage', 'fas fa-clock', Schedules::class);
 
-        yield MenuItem::section('Gestion des Employés');
-        yield MenuItem::linkToCrud('Employés', 'fas fa-users', User::class);
+        yield MenuItem::section('Gestion du personnel');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
     }
 }
