@@ -3,7 +3,7 @@
 {% block title %}Les avis{% endblock %}
 
 {% block body %}
-        <style>
+<style>
     h1 {
         text-align: center;
         color: #233588;
@@ -11,7 +11,8 @@
         line-height: 1.5;
     }
 </style>
-    <h1>Laissez-nous un avis après votre passage</h1>
+<h1>Laissez-nous un avis après votre passage</h1>
+
 <!-- Start review form section -->
 <section class="review-form-section sec-padding">
     <div class="container">
@@ -21,15 +22,15 @@
                     <div class="card-body">
                         <h2>Laissez votre avis</h2>
                         <div class="review-form">
-                           
+                            <form method="post" action="{{ path('app_reviews') }}">
                                 <input type="text" name="firstname" placeholder="Votre prénom" required>
                                 <input type="text" name="lastname" placeholder="Votre nom" required>
                                 <textarea name="message" placeholder="Votre commentaire" required></textarea>
                                 <div class="star-rating">
                                     {% for i in 5..1 %}
-    <input type="radio" name="rating" value="{{ i }}" id="star{{ i }}">
-    <label for="star{{ i }}">&#9733;</label>
-{% endfor %}
+                                        <input type="radio" name="rating" value="{{ i }}" id="star{{ i }}">
+                                        <label for="star{{ i }}">&#9733;</label>
+                                    {% endfor %}
                                 </div>
                                 <button type="submit" class="submit-btn">Soumettre</button>
                             </form>
@@ -42,6 +43,11 @@
 </section>
 <!-- End review form section -->
 
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
 
 <style>
     h1 {

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReviewsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Request;
 
 #[ORM\Entity(repositoryClass: ReviewsRepository::class)]
 class Reviews
@@ -131,4 +132,31 @@ class Reviews
 
         return $this;
     }
+
+    public function submitReview(Request $request)
+{
+    $entityManager = $this->getDoctrine()->getManager();
+
+    // Récupérer les données du formulaire
+    $formData = $request->request->get('review_form');
+
+    // Créer une nouvelle instance de l'entité Reviews
+    $review = new Reviews();
+    $review->setFirstname($formData['firstname']);
+    $review->setLastname($formData['lastname']);
+    $review->setEmail($formData['email']);
+    $review->setMessage($formData['message']);
+    $review->setRating($formData['note']);
+   
+    // ... Autres propriétés ...
+
+    // Définir isApproved sur false par défaut
+    $review->setIsApproved(false);
+
+    // Enregistrer la nouvelle instance dans la base de données
+    $entityManager->persist($review);
+    $entityManager->flush();
+
+
+}
 }

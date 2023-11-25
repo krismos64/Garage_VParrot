@@ -16,7 +16,6 @@ class HomeController extends AbstractController
     
         $days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         $reviews = $reviewsRepository->findAll();
-
         $workingHours = [];
         foreach ($days as $day) {
             $workingHours[$day] = $schedulesRepository->findWorkingHoursByDay($day);
