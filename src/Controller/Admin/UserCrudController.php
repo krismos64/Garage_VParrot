@@ -31,6 +31,7 @@ class UserCrudController extends AbstractCrudController
 
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
     {
+        $userId = $this->getUser()->getId();
 
         $response = $this->entityRepo->createQueryBuilder($searchDto, $entityDto, $fields, $filters);
         $response->andWhere('entity.id != :userId')->setParameter('userId', $userId );
@@ -39,6 +40,9 @@ class UserCrudController extends AbstractCrudController
     }
     public function configureFields(string $pageName): iterable
     {
+        yield TextField::new('firstname', 'Nom');
+
+        yield TextField::new('lastname', 'Prénom');
 
         yield EmailField::new('email', 'Email');
 

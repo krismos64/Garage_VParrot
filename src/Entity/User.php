@@ -36,7 +36,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
-
+    
+    #[ORM\OneToMany(targetEntity:Service::class, mappedBy:"user")]
+     
+    private Collection $add_service;
     
      #[ORM\OneToMany(targetEntity:Reviews::class, mappedBy:"customer")]
      
