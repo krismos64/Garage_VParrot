@@ -6,15 +6,23 @@
     <div class="container-sm">
         <div class="row">
             <div class="col-12 mx-auto">
-            <style>
-    h1 {
-        text-align: center;
-        color: #233588; 
-        margin-top: 50px;
-        line-height: 1.5;
+                <style>
+                    h1, h2, h3, h4, h5, h6 {
+                        color: #233588;
+                    }
 
-         }
-       </style>
+                    h1 {
+                        text-align: center;
+                        margin-top: 50px;
+                        line-height: 1.5;
+                    }
+
+                    .form-group label {
+                        font-weight: bold;
+                        color: #233588;
+                    }
+                </style>
+
                 <h1>Votre demande</h1>
                 {{ form_start(form, {'attr': {'id': 'form-contact'}} ) }}
                 

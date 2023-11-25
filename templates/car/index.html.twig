@@ -1,47 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Voitures{% endblock %}
+{% block title %}Voitures d'occasion{% endblock %}
 
 {% block body %}
-    <style>
-        h1 {
-            text-align: center;
-            color: #233588;
-            margin-top: 50px;
-            line-height: 1.5;
-        }
-        .car-image {
-            max-height: 400px;
-            margin: auto;
-            display: block;
-        }
-    </style>
 
-    <h1 id="main-title" class="text-center mb-4">En vente, chez V.Parrot</h1>
+{% include "car/filtre.html.twig" %}
 
-    <div class="row">
-        {% for car in cars %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <!-- Car image -->
-                    {% set carImages = car.getImages() %}
-                    {% if carImages is not empty %}
-                        <img src="{{ path('uploads_cars', {'filename': carImages.first().getTitle()}) }}" class="card-img-top car-image" alt="Car Image">
-                    {% else %}
-                        <!-- Default image or placeholder image -->
-                        <img src="{{ asset('/uploads/Cars/CitroënC3-1.jpg') }}" class="card-img-top car-image" alt="Default Image">
-                    {% endif %}
+{% include "car/card.html.twig" %}
 
-                    <!-- Car details -->
-                    <div class="card-body">
-                        <h5 class="card-title">{{ car.getBrand() }} {{ car.getModel() }}</h5>
-                        <p class="card-text">Année: {{ car.getYear() }}</p>
-                        <p class="card-text">Kilométrage: {{ car.getKm() }} km</p>
-                        <p class="card-text text-primary">Prix: {{ car.getPrice() }}€</p>
-                        <p class="card-text">{{ car.getDescription()|raw }}</p>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
 {% endblock %}

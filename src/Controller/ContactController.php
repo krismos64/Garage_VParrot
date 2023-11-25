@@ -74,7 +74,6 @@ class ContactController extends AbstractController
     }
 
     #[Route('/contact/success', name: 'app_contact_success', methods: ['GET'])]
-    
     public function success(): Response
     {
         return $this->render('contact/success.html.twig');
