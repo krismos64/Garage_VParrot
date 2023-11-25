@@ -74,7 +74,8 @@ class UserCrudController extends AbstractCrudController
     {
         return $crud
             ->setEntityLabelInSingular('un utilisateur')
-            ->setPageTitle('index', 'Utilisateurs')
-            ->setPaginatorPageSize(10);
+            ->setPageTitle('index', 'Utilisateurs du site web du garage V.Parrot')
+            ->setPageTitle('new', 'Créer un nouvel utilisateur')
+            ->setPaginatorPageSize(20);
     }
 }

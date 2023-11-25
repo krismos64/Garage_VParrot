@@ -17,10 +17,9 @@ class SchedulesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('Day', 'Day'),
-            TextField::new('OpeningTime', 'Opening Time'),
-            TextField::new('ClosingTime', 'Closing Time'),
+            TextField::new('Day', 'Jour'),
+            TextField::new('OpeningTime', 'Heure ouverture'),
+            TextField::new('ClosingTime', 'Heure fermeture'),
         ];
     }
 }

@@ -59,11 +59,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Aperçu des avis', 'fas fa-eye', Reviews::class)
         ]);
 
-        yield  MenuItem::linkToCrud('Messages client', 'fas fa-comments', Messages::class);
+        yield  MenuItem::linkToCrud('Messages clients', 'fas fa-comments', Messages::class);
 
 
         if ($this->isGranted('ROLE_SUPER_ADMIN')) {
-            yield MenuItem::subMenu('Utilisateur', 'fas fa-users')->setSubItems([
+            yield MenuItem::subMenu('Utilisateurs', 'fas fa-users')->setSubItems([
                 MenuItem::linkToCrud('Créer un utilisateur', 'fas fa-user', User::class)->setAction(Crud::PAGE_NEW),
                 MenuItem::linkToCrud('Aperçu des utilisateurs', 'fas fa-eye', User::class)
             ]);

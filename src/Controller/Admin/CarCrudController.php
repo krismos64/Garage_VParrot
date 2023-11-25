@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Car;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -19,19 +20,27 @@ class CarCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            TextField::new('km'),
-            TextField::new('year'),
-            TextField::new('brand'),
-            TextField::new('model'),
-            TextField::new('price'),
-            TextEditorField::new('description'),
+            TextField::new('name')->setLabel('Nom de la voiture'),
+            TextField::new('km')->setLabel('Kilométrage'),
+            TextField::new('year')->setLabel('Année'),
+            TextField::new('brand')->setLabel('Marque'),
+            TextField::new('model')->setLabel('Modèle'),
+            TextField::new('price')->setLabel('Prix'),
+            TextEditorField::new('description')->setLabel('Description'),
             AssociationField::new('images')
                 ->setFormTypeOptions([
                     'by_reference' => false,
-                ]),
+                ])->setLabel('Images de la voiture'),
             CollectionField::new('images')
-                ->onlyOnForms(),
+                ->onlyOnForms()->setLabel('Images de la voiture (Collection)'),
         ];
+    }
+
+        public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Liste des annonces des voitures à vendre')
+            ->setPageTitle('new', 'Créer une nouvelle annonce de voiture à vendre')
+            ->setPaginatorPageSize(20);
     }
 }

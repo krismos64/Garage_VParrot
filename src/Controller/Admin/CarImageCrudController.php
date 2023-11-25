@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\CarImage;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -17,9 +18,15 @@ class CarImageCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('title'),
+            TextField::new('title')->setLabel('Titre image'),
             // Add other fields for CarImage entity...
         ];
+    }
+
+        public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index', 'Images des voitures pour les annonces')
+            ->setPaginatorPageSize(20);
     }
 }

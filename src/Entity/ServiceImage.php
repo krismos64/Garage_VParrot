@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ServiceImage
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy: "AUTO")]
     #[ORM\Column]
     private ?int $id = null;
 
@@ -64,6 +64,12 @@ class ServiceImage
         return $this;
     }
 
-
+    public function __toString()
+    {
+    return $this->Title;
+    }
 }
+
+
+
 

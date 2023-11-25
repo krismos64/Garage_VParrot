@@ -30,13 +30,13 @@ class MessagesCrudController extends AbstractCrudController
         yield    TextField::new('lastName', 'Nom');
         yield    EmailField::new('email', 'E-mail');
         yield    TextField::new('phoneNumber', 'Numéro de téléphone');
-        yield    TextareaField::new('content', 'Contenu du message');
-        yield    BooleanField::new('approved', 'Traité')->renderAsSwitch();
+        yield    TextareaField::new('Message', 'Contenu du message');
+        yield    BooleanField::new('isApproved', 'Traité')->renderAsSwitch();
     }
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('index', 'Messages clients')
-            ->setPaginatorPageSize(5);
+            ->setPageTitle('index', 'Messages des clients')
+            ->setPaginatorPageSize(20);
     }
 }
