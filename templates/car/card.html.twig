@@ -22,23 +22,46 @@
                     </div>
                 </div>
 
-                <!-- Modal for description -->
-                <div class="modal fade" id="descriptionModal{{ car.getId() }}" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel{{ car.getId() }}" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="descriptionModalLabel{{ car.getId() }}">{{ car.getBrand() }} {{ car.getModel() }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Modal for description and images -->
+<div class="modal fade" id="descriptionModal{{ car.getId() }}" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel{{ car.getId() }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descriptionModalLabel{{ car.getId() }}">{{ car.getBrand() }} {{ car.getModel() }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Carousel -->
+                <div id="carouselExample{{ car.getId() }}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in car.getImages() %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ path('uploads_cars', {'filename': image.getTitle()}) }}" class="d-block w-100" alt="Car Image">
                             </div>
-                            <div class="modal-body">
-                                <p id="modalDescription{{ car.getId() }}">{{ car.getDescription()|raw }}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Réduire</button>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{ car.getId() }}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{ car.getId() }}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
+                <!-- Description -->
+                <p id="modalDescription{{ car.getId() }}">{{ car.getDescription()|raw }}</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Réduire</button>
+            </div>
+        </div>
+    </div>
+</div>
+
             {% endfor %}
         </div>
     </div>
