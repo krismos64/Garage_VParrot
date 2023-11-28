@@ -7,8 +7,9 @@ Il s'agit d'un projet pour un garage fictif proposant des services automobiles a
 Cloner le projet :
 Pour cloner le projet, exécutez la commande suivante :
 
-git clone 
-Prérequis:
+(https://github.com/krismos64/Garage_VParrot.git)git clone 
+
+Prérequis :
 PHP 8 ou version supérieure
 
 MySQL ou un autre serveur de base de données compatible avec Symfony, je recommande PhpMyAdmin
